@@ -1,0 +1,8 @@
+ALTER TABLE payment
+ADD INDEX idx_datetime_amount (payment_date, amount);
+
+
+---------- listed solution (both work): -----------------------
+
+CREATE INDEX idx_payment01
+ON payment (payment_date, amount);

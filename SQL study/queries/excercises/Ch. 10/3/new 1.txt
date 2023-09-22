@@ -1,0 +1,5 @@
+SELECT alpha.num
+FROM
+	(SELECT 0 num UNION ALL
+	 SELECT 1 num UNION ALL
+	 SELECT 2 num) alpha;

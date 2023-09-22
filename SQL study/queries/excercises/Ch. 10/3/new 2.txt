@@ -1,0 +1,7 @@
+SELECT alpha.num, alpha.num + beta.num
+FROM
+	(SELECT 0 num UNION ALL
+	 SELECT 1 num UNION ALL
+	 SELECT 2 num) alpha
+	 JOIN
+	(SELECT 10 num) beta;

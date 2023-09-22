@@ -1,0 +1,22 @@
+CREATE VIEW country_tot_payments
+AS
+SELECT co.country, SUM(SUM(p.amount)) as tot_payments,
+	(SELECT SUM(p.amount)
+	 FROM payment p
+		INNER JOIN customer c
+		ON c.customer_id = p.customer_id
+
+
+
+
+CREATE VIEW country_tot_payments
+AS
+SELECT
+	co.country,
+	SUM(p.amount) AS tot_payments
+FROM payment AS p
+	INNER JOIN customer AS cu ON p.customer_id = cu.customer_id
+	INNER JOIN address AS a ON cu.address_id = a.address_id
+	INNER JOIN city AS ci ON a.city_id = ci.city_id
+	INNER JOIN country AS co ON ci.country_id = co.country_id
+GROUP BY co.country

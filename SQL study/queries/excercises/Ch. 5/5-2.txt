@@ -1,0 +1,38 @@
+Microsoft Windows [Version 10.0.19044.1586]
+(c) Microsoft Corporation. All rights reserved.
+
+CProgram FilesMySQLMySQL Server 8.0binmysql -u root -p
+Enter password 
+Welcome to the MySQL monitor.  Commands end with ; or g.
+Your MySQL connection id is 11
+Server version 8.0.28 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle andor its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation andor its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or 'h' for help. Type 'c' to clear the current input statement.
+
+mysql use sakila;
+Database changed
+mysql SELECT a.last_name
+    - FROM actor a JOIN film f
+    -  ON a.actor_id = f.actor_id
+    - xx;
+ERROR 1064 (42000) You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'xx' at line 4
+mysql SELECT a.last_name
+    - FROM actor a JOIN film f
+    -  ON a.actor_id = f.actor_id^C
+mysql SELECT f.title
+    - FROM film f JOIN actor a
+    -  ON f.actor_id = a.actor_id
+    - WHERE a.first_name LIKE 'JOHN%';
+ERROR 1054 (42S22) Unknown column 'f.actor_id' in 'on clause'
+mysql SELECT f.title, f.actor_id
+    - FROM film f JOIN actor a
+    -  ON f.actor_id = a.actor_id
+    - WHERE a.first_name LIKE 'JOHN%';
+ERROR 1054 (42S22) Unknown column 'f.actor_id' in 'field list'
+mysql

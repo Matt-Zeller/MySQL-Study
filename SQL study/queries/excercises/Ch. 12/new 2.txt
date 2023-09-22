@@ -1,0 +1,6 @@
+(SELECT 'Hollywood Star' Level, 30 min_roles, 99999 max_roles
+ UNION ALL
+ SELECT 'Prolific Actor' Level, 20 min_roles, 29 max_roles
+ UNION ALL
+ SELECT 'Newcomer' Level, 1 min_roles, 19 max_roles
+) lvl_grps

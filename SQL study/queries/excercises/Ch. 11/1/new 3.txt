@@ -1,0 +1,10 @@
+SELECT name,
+ CASE name
+  WHEN
+   (SELECT name FROM language
+     WHERE name = 'English' OR 'Italian' OR 'French' OR 'German'
+   )
+  THEN 'latin1'
+  ELSE 'Unknown'
+ END character_set
+FROM language;

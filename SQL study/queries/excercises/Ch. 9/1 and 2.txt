@@ -1,0 +1,95 @@
+----------9_1: noncorrelated subquery ----------------------------------------------------------
+
+SELECT title
+FROM film
+WHERE film_id IN
+ (SELECT fc.film_id
+  FROM film_category fc INNER JOIN category c
+   ON fc.category_id = c.category_id
+  WHERE c.name = 'Action');
+
+
+----------9_2: correlated subquery ----------------------------------------------------------
+
+SELECT f.title
+FROM film f
+WHERE EXISTS
+ (SELECT 1
+  FROM film_category fc
+	INNER JOIN category c ON c.film_id = fc.film_id
+  WHERE fc.film_id = f.film_id
+	AND c.name = 'Action');
+
+---------------sketches----------------------------------------------------------------
+
+SELECT f.title
+FROM film f INNER JOIN film_category fc
+ ON f.film_id = fc.film_id
+WHERE 'Action' =
+ (SELECT c.name FROM category c
+  WHERE c.category_id = fc.category_id);
+  
+  
+SELECT f.title
+FROM film f
+WHERE EXISTS
+ (SELECT 1
+  FROM film_category fc
+	INNER JOIN category c ON c.film_id = fc.film_id
+  WHERE fc.film_id = f.film_id
+	AND c.name = 'Action');
+
+  
+
+  FROM film_category fc INNER JOIN category c
+   ON fc.category_id = c.category_id
+  WHERE c.name = 'Action');
+
+
+SELECT f.title
+FROM film f
+WHERE
+ (SELECT fc.film_id FROM film_category fc
+  WHERE fc.film_id = f.film_id)
+
+
+
+
+SELECT f.title
+FROM film f
+WHERE 
+ (SELECT c.category_id FROM category c
+  WHERE c.name = 'Action')
+
+SELECT fc.film_id FROM film_category fc
+WHERE fc.category_id = 
+ (SELECT c.category_id FROM category c
+  WHERE c.name = 'Action')
+
+SELECT _id
+FROM film_category fc
+WHERE fc.film_id = f.film_id
+
+
+
+SELECT title
+FROM film
+WHERE film_id IN
+ (SELECT fc.film_id
+   FROM film_category fc INNER JOIN category c
+   ON c.category_id = fc.category_id
+  WHERE c.name = 'Action');
+
+
+
+
+
+
+SELECT f.title
+FROM film f
+WHERE f.film_id IN
+ (SELECT fc.film_id
+  FROM film_category fc
+  WHERE fc.category_id =
+         (SELECT c.category_id FROM category c
+          WHERE c.name = 'Action'));

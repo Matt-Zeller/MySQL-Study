@@ -1,0 +1,7 @@
+SELECT
+	SUM(CASE WHEN rating = 'PG' THEN 1 ELSE 0 END) pg,
+	SUM(CASE WHEN rating = 'G' THEN 1 ELSE  0 END) g,
+	SUM(CASE WHEN rating = 'NC-17' THEN 1 ELSE 0 END) nc_17,
+	SUM(CASE WHEN rating = 'PG-13' THEN 1 ELSE 0 END) pg_13, 
+	SUM(CASE WHEN rating = 'R' THEN 1 ELSE 0 END) r
+FROM film;

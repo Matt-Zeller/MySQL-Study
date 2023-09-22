@@ -1,0 +1,7 @@
+SELECT name,
+ CASE name
+  WHEN name IN ('English', 'Italian', 'French', 'German') 
+   THEN 'latin1'
+  ELSE 'utf8'
+ END character_set
+FROM language;

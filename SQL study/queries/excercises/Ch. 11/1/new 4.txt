@@ -1,0 +1,6 @@
+SELECT name,
+ CASE name
+  WHEN 'English' AND 'asd' THEN 'latin1'
+  ELSE 'Unknown'
+ END character_set
+FROM language;

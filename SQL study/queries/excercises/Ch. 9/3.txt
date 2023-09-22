@@ -1,0 +1,17 @@
+SELECT actor_id, num_films, lvl_grps.Level
+FROM
+ (SELECT actor_id,
+	count(*) num_films
+	FROM film_actor
+	GROUP BY actor_id
+ ) lvl
+  INNER JOIN
+ (SELECT 'Hollywood Star' Level, 30 min_roles, 99999 max_roles
+  UNION ALL
+  SELECT 'Prolific Actor' Level, 20 min_roles, 29 max_roles
+  UNION ALL
+  SELECT 'Newcomer' Level, 1 min_roles, 19 max_roles
+ ) lvl_grps
+   ON lvl.num_films
+	BETWEEN lvl_grps.min_roles AND lvl_grps.max_roles
+GROUP BY actor_id;

@@ -1,0 +1,6 @@
+SELECT 'ALTER TABLE sakila.customer ADD INDEX 
+	(SELECT index_name 
+	 FROM information_schema.statistics
+	 WHERE table_name = 'customer')' create_index_statement
+UNION ALL
+SELECT 'x';

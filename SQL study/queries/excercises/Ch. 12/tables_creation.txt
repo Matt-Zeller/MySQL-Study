@@ -1,0 +1,21 @@
+CREATE TABLE transaction
+	(txn_id SMALLINT UNSIGNED,
+	txn_date DATE,
+	account_id SMALLINT UNSIGNED,
+	txn_type_cd ENUM('C', 'D'),
+	amount SMALLINT UNSIGNED,
+	CONSTRAINT pk_transaction PRIMARY KEY (txn_id)
+	);
+
+ALTER TABLE transaction MODIFY txn_date DATE;
+
+ALTER TABLE transaction MODIFY txn_date DATE;
+	
+INSERT INTO transaction
+	(txn_id, txn_date, account_id, txn_type_cd, amount)
+VALUES (1001, '2019-05-15', 123, 'C', 500);
+
+
+INSERT INTO transaction
+	(txn_id, txn_date, account_id, txn_type_cd, amount)
+VALUES (1002, '2019-06-01', 789, 'C', 75);

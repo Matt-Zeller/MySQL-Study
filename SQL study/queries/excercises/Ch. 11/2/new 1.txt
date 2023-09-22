@@ -1,0 +1,9 @@
+SELECT
+	SUM(CASE WHEN monthname(rental_date) = 'May' THEN 1
+		ELSE 0 END) May_rentals,
+	SUM(CASE WHEN monthname(rental_date) = 'June' THEN 1
+		ELSE 0 END) June_rentals,
+	SUM(CASE WHEN monthname(rental_date) = 'July' THEN 1
+		ELSE 0 END) July_rentals
+FROM rental
+WHERE rental_date BETWEEN '2005-05-01' AND '2005-08-01';

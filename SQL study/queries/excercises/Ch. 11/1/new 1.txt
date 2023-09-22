@@ -1,0 +1,11 @@
+SELECT name,
+ CASE name
+  WHEN 'English' THEN 'latin1'
+  WHEN 'Italian' THEN 'latin1'
+  WHEN 'French' THEN 'latin1'
+  WHEN 'German' THEN 'latin1'
+  WHEN 'Japanese' THEN 'utf8'
+  WHEN 'Mandarin' THEN 'utf8'
+  ELSE 'Unknown'
+ END character_set
+FROM language;

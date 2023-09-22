@@ -1,0 +1,17 @@
+CREATE TABLE account
+	(account_id SMALLINT UNSIGNED,
+	avail_balance SMALLINT UNSIGNED,
+	last_activity_date DATETIME,
+	CONSTRAINT pk_account PRIMARY KEY (account_id)
+	);
+	
+	
+INSERT INTO account
+	(account_id, avail_balance, last_activity_date)
+VALUES (123, 500, '2019-07-10 20:53:27');
+
+
+
+INSERT INTO account
+	(account_id, avail_balance, last_activity_date)
+VALUES (789, 75, '2019-06-22 15:18:35');

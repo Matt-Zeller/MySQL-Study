@@ -1,0 +1,4 @@
+SELECT customer_id, sum(amount), count(*)
+FROM payment
+GROUP BY customer_id
+HAVING count(*) >= 40;

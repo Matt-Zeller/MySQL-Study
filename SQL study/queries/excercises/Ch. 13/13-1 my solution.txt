@@ -1,0 +1,7 @@
+ALTER TABLE rental
+ADD CONSTRAINT exercise_fk_rental_customer FOREIGN KEY (customer_id)
+REFERENCES customer (customer_id) ON DELETE RESTRICT;
+
+
+
+DELETE FROM customer WHERE customer_id = 123;
